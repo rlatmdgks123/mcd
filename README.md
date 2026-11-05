@@ -1,2 +1,307 @@
-# mcd
-mcd
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맥도날드 - I'm lovin' it</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mcred: '#DB0007',
+                        mcyellow: '#FFC72C',
+                        mcdark: '#27251F'
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for Korean Support -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <svg viewBox="0 0 100 100" class="h-12 w-12 text-mcyellow drop-shadow-md" fill="currentColor">
+                        <path d="M29.5,70 C29.5,45 35,25 50,25 C65,25 70.5,45 70.5,70 C70.5,45 76,25 91,25 C106,25 106,60 106,70 L93,70 C93,60 93,40 84.5,40 C76,40 76,60 76,70 L64,70 C64,60 64,40 55.5,40 C47,40 47,60 47,70 L35,70 C35,60 35,40 26.5,40 C18,40 18,60 18,70 L6,70 C6,60 6,25 21,25 C36,25 41.5,45 41.5,70 Z" transform="translate(-6, -10)" />
+                    </svg>
+                    <span class="ml-2 font-bold text-2xl text-mcdark tracking-tight">McDonald's</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-gray-700 hover:text-mcred font-medium transition-colors">브랜드 소개</a>
+                    <a href="#menu" class="text-gray-700 hover:text-mcred font-medium transition-colors">인기 메뉴</a>
+                    <a href="#locations" class="bg-mcred hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-md hover:shadow-lg">
+                        매장 찾기
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-mcred focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-inner">
+                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-mcred hover:bg-gray-50">브랜드 소개</a>
+                <a href="#menu" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-mcred hover:bg-gray-50">인기 메뉴</a>
+                <a href="#locations" class="block mt-4 text-center bg-mcred text-white px-6 py-3 rounded-full font-bold">매장 찾기</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <header class="relative pt-20">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0 h-[600px] mt-20 md:mt-0">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&q=80&w=2000" alt="Delicious Burger" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-r from-mcdark/90 to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[600px] flex items-center">
+            <div class="max-w-xl text-white mt-10 md:mt-0">
+                <h1 class="text-5xl md:text-7xl font-black mb-4 text-mcyellow drop-shadow-lg">
+                    I'm lovin' it.
+                </h1>
+                <p class="text-xl md:text-3xl font-bold mb-6 text-white drop-shadow-md">
+                    언제나 즐거운 맥도날드
+                </p>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 font-light leading-relaxed">
+                    신선한 재료, 변함없는 맛. 여러분의 일상에 맛있는 즐거움을 더해드립니다. 지금 바로 가까운 맥도날드를 만나보세요.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#menu" class="bg-mcyellow text-mcdark hover:bg-yellow-300 px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-xl">
+                        메뉴 보기
+                    </a>
+                    <a href="#about" class="bg-white/20 backdrop-blur-sm text-white border border-white/50 hover:bg-white/30 px-8 py-4 rounded-full font-bold text-lg transition-colors">
+                        스토리
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Brand Introduction Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1 relative rounded-3xl overflow-hidden shadow-2xl group">
+                    <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&q=80&w=1000" alt="McDonalds Store" class="w-full h-auto object-cover transform transition duration-500 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-mcred mix-blend-multiply opacity-20"></div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <h2 class="text-mcred font-bold text-lg tracking-wider mb-2">ABOUT US</h2>
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-mcdark mb-6 leading-tight">
+                        세상에서 가장 <br>사랑받는 레스토랑
+                    </h3>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        맥도날드는 전 세계 100여 개국에서 매일 수천만 명의 고객들에게 맛있는 즐거움을 선사하는 글로벌 퀵 서비스 레스토랑입니다. 
+                    </p>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        우리는 엄격한 품질 관리(Quality), 친절한 서비스(Service), 철저한 청결(Cleanliness), 그리고 가치(Value)를 뜻하는 <strong>QSC&V</strong> 원칙을 바탕으로 고객에게 최고의 경험을 제공하기 위해 노력합니다.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="border-l-4 border-mcyellow pl-4">
+                            <h4 class="font-bold text-2xl text-mcdark">100+</h4>
+                            <p class="text-gray-500 text-sm">진출 국가</p>
+                        </div>
+                        <div class="border-l-4 border-mcred pl-4">
+                            <h4 class="font-bold text-2xl text-mcdark">No.1</h4>
+                            <p class="text-gray-500 text-sm">프랜차이즈 브랜드</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Menu Section -->
+    <section id="menu" class="py-24 bg-gray-50 relative">
+        <!-- Decorative Shape -->
+        <div class="absolute top-0 left-0 w-full h-64 bg-mcyellow opacity-10 rounded-b-[100px] md:rounded-b-[200px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-mcred font-bold text-lg tracking-wider mb-2">OUR FAVORITES</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold text-mcdark mb-6">인기 메뉴</h3>
+                <p class="text-gray-600 text-lg">
+                    시간이 지나도 변함없이 사랑받는 맥도날드의 베스트셀러를 만나보세요.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Menu Item 1: Big Mac -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=800" alt="Big Mac" class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110" />
+                        <div class="absolute top-4 right-4 bg-mcred text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Signature</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold text-mcdark mb-3 flex items-center justify-between">
+                            빅맥® 
+                            <span class="text-mcyellow"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></span>
+                        </h4>
+                        <p class="text-gray-600 mb-6">
+                            100% 순 쇠고기 패티 두 장에 빅맥®만의 특별한 소스, 입안에서 살살 녹는 치즈와 신선한 양상추, 양파, 피클까지! 50년 넘게 사랑받는 맥도날드의 상징.
+                        </p>
+                        <button class="w-full border-2 border-mcred text-mcred hover:bg-mcred hover:text-white py-3 rounded-xl font-bold transition-colors">
+                            자세히 보기
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2: French Fries -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&q=80&w=800" alt="French Fries" class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110" />
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold text-mcdark mb-3">후렌치 후라이</h4>
+                        <p class="text-gray-600 mb-6">
+                            엄선된 감자만을 사용하여 겉은 바삭하고 속은 부드러운 세계 최고 품질의 감자튀김. 맥도날드 버거와 떼려야 뗄 수 없는 완벽한 파트너.
+                        </p>
+                        <button class="w-full border-2 border-mcred text-mcred hover:bg-mcred hover:text-white py-3 rounded-xl font-bold transition-colors">
+                            자세히 보기
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3: McNuggets -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="h-64 overflow-hidden relative">
+                        <!-- Used a crispy chicken image suitable for nuggets representation -->
+                        <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&q=80&w=800" alt="McNuggets" class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110" />
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold text-mcdark mb-3">맥너겟®</h4>
+                        <p class="text-gray-600 mb-6">
+                            바삭하고 촉촉한 닭고기 순살 너겟. 새콤달콤한 스위트 앤 사워 소스나 매콤한 스위트 칠리 소스와 함께 즐기면 더욱 맛있는 간식.
+                        </p>
+                        <button class="w-full border-2 border-mcred text-mcred hover:bg-mcred hover:text-white py-3 rounded-xl font-bold transition-colors">
+                            자세히 보기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Finder Section (CTA) -->
+    <section id="locations" class="py-20 bg-mcred relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="h-full w-full" fill="white" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <pattern id="pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <circle cx="2" cy="2" r="2" />
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#pattern)" />
+            </svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between">
+            <div class="text-center md:text-left mb-10 md:mb-0">
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-4">가까운 맥도날드를 <br class="hidden md:block">찾고 계신가요?</h2>
+                <p class="text-red-100 text-lg md:text-xl">지금 바로 매장을 방문하여 신선하고 따뜻한 메뉴를 즐겨보세요.</p>
+            </div>
+            <div class="flex-shrink-0">
+                <button class="bg-mcyellow text-mcdark hover:bg-white px-10 py-5 rounded-full font-bold text-xl transition-all shadow-xl hover:shadow-2xl flex items-center group">
+                    <svg class="w-6 h-6 mr-2 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    내 주변 매장 찾기
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-mcdark text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 border-b border-gray-700 pb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg viewBox="0 0 100 100" class="h-8 w-8 text-mcyellow mr-2" fill="currentColor">
+                            <path d="M29.5,70 C29.5,45 35,25 50,25 C65,25 70.5,45 70.5,70 C70.5,45 76,25 91,25 C106,25 106,60 106,70 L93,70 C93,60 93,40 84.5,40 C76,40 76,60 76,70 L64,70 C64,60 64,40 55.5,40 C47,40 47,60 47,70 L35,70 C35,60 35,40 26.5,40 C18,40 18,60 18,70 L6,70 C6,60 6,25 21,25 C36,25 41.5,45 41.5,70 Z" transform="translate(-6, -10)" />
+                        </svg>
+                        <span class="text-white text-xl font-bold">McDonald's</span>
+                    </div>
+                    <p class="text-sm">
+                        한국맥도날드(유)<br>
+                        대표이사: 안토니 마티네즈<br>
+                        사업자등록번호: 101-81-26409<br>
+                        전화주문: 1600-5252
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-4">메뉴</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-mcyellow transition-colors">버거</a></li>
+                        <li><a href="#" class="hover:text-mcyellow transition-colors">맥런치</a></li>
+                        <li><a href="#" class="hover:text-mcyellow transition-colors">맥모닝</a></li>
+                        <li><a href="#" class="hover:text-mcyellow transition-colors">해피스낵</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-4">고객센터</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-mcyellow transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-mcyellow transition-colors">고객의 소리</a></li>
+                        <li><a href="#" class="hover:text-mcyellow transition-colors">채용안내</a></li>
+                        <li><a href="#" class="hover:text-mcyellow transition-colors">개인정보 처리방침</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2026 McDonald's. All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <!-- Social Icons placehold -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Mobile Menu Toggle -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
